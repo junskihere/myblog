@@ -21,10 +21,7 @@ class Posts extends React.Component{
 
     return(
       <div className="container">
-      <div className="row ">
-        <div className="card-panel  blue-grey lighten-5 valign center z-depth-4"><h4>List of Posts</h4></div>
-      </div>
-      <div className="row  z-depth-4 ">
+      <div className="row  ">
               <PostLists posts={posts} />
         </div>
             <AddPostButton />
