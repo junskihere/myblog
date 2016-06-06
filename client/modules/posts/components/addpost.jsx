@@ -2,10 +2,13 @@ import React from 'react';
 
 
 
+
 class AddPost extends React.Component{
 
   render() {
     const error= this.props;
+
+
     return (
       <div className="container">
         <div className="row">
@@ -37,7 +40,9 @@ class AddPost extends React.Component{
             <button type="submit" className="waves-effect waves-light btn blue darken-3">submit</button>
           </form>
         </div>
+
       </div>
+
     );
   }
 

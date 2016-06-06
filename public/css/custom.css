@@ -42,3 +42,16 @@ body {
 .justify {
   text-align: justify !important;
 }
+.v-center {
+  /*position:fixed;*/
+   top: 0% !important;
+   /*left: 50%;
+   width:30em;
+   height:18em;
+   margin-top: -9em; /*set to a negative number 1/2 of your height*/
+   /*margin-left: -15em; /*set to a negative number 1/2 of your width*/
+   /*padding-left :15px;
+   padding-right :15px;
+   border: 1px solid #ccc;
+   background-color: #f3f3f3;*/
+}
