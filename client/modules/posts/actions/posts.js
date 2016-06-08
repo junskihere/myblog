@@ -1,14 +1,23 @@
 export default {
   createPost({Meteor,LocalState,FlowRouter},formData){
     loopObject(formData.images).then(result=> {
-      formData.images = result;
-      console.log(result[0]);
+      const images = {};
+    // for(var i = 0; i <= formData.images.length ; i++){
+    //   images[i] = result[i];
+    // }
+
+      formData.images = result[0];
+      var eArray = result.values();
+
+for (let n of eArray) {
+  console.log(n);
+}
 
         // Meteor.call('createPost',formData, (err)=> {
         //   if(err){
         //     throw new Error(err.message);
         //   }
-        // }) 
+        // })
     })
   },
 
@@ -42,12 +51,16 @@ const converToBinary = (rawImage) => {
 
 const loopObject = (images)=> {
     return new Promise((resolve) => {
-      const imageArray = [];
+      const imageArray = new Array();
         for(var i = 0; i <= images.length ; i++){
           converToBinary(images[i]).then(result=> {
             if (i >=  images.length){
+              console.log(imageArray);
+
               resolve(imageArray);
             }
+
+
             imageArray.push(result);
           });
 
