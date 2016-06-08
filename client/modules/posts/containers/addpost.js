@@ -20,7 +20,7 @@ export const composer = ({context,clearErrors}, onData) => {
 export const depsMapper = (context, actions) => ({
   create:actions.posts.createPost,
   clearErrors:actions.posts.clearErrors,
-  context: () => context
+  context: () => context,
 });
 
 export default composeAll(

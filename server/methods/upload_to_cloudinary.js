@@ -7,23 +7,25 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'creaetPost'(image) {
-      check(image,Object);
+    'createPost'(post) {
+      check(post,Object);
       return new Promise((resolve)=>{
-        uploadImage(image.image).then(result=> {
-          const post = new Post();
-          post.title = image.title;
-          post.body = image.body;
-          post.user_id = Meteor.uuid();
-          post.images  = result;
-          post.createdAt = new Date();
-          post.save((err)=>{
-            if(err){
-              const errors = err.details[0];
-              throw new Error(errors.message);
-            }
-            resolve("Created Transaction");
-          });
+        uploadImage(post.images).then(result=> {
+          console.log(result);
+
+          // const post = new Post();
+          // post.title = image.title;
+          // post.body = image.body;
+          // post.user_id = Meteor.uuid();
+          // post.images  = result;
+          // post.createdAt = new Date();
+          // post.save((err)=>{
+          //   if(err){
+          //     const errors = err.details[0];
+          //     throw new Error(errors.message);
+          //   }
+          //  resolve("Created Transaction");
+        //  });
         });
 
 
@@ -33,19 +35,24 @@ export default function () {
 }
 
 
-const  uploadImage  = (image)=>{
+const  uploadImage  = (images)=>{
   return new Promise ((resolve) => {
-    let raw = new Buffer(image);
     cloudinary.config ({
             cloud_name: 'dnebqjbyh',
             api_key: '264784665157316',
             api_secret: 'DBgUmUAaTYoZ27AokZJ1Gs_QY0c' ,
     });
-
+    var imagesUrl = [];
     var dUri = new Datauri();
-    dUri.format('.png', raw);
-    cloudinary.uploader.upload(dUri.content,(result)=> {
-          resolve(result);
-    });
+    for(var i = 0;i<= images.length;i++){
+      let raw = new Buffer(images[i]);
+      dUri.format('.png', raw);
+      cloudinary.uploader.upload(dUri.content,(result)=> {
+        if(i >= images.length ){
+          resolve(imagesUrl);
+        }
+        imagesUrl.push(result);
+      });
+    }
   });
 }

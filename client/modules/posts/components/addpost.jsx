@@ -19,7 +19,7 @@ class AddPost extends React.Component{
           <form clclassNameass="col s12" onSubmit={this.createPost.bind(this)} enctype="multipart/form-data">
             <div className="row">
               <div className="input-field col s12">
-                <input type="file" ref="image" name="fileToUpload" id="fileToUpload" />
+                <input type="file" ref="image" name="fileToUpload" id="fileToUpload" multiple />
                 </div>
             </div>
             <div className="row">
@@ -57,9 +57,9 @@ class AddPost extends React.Component{
     const data = {
       title : title.value,
       body : body.value,
-      image : image.files,
+      images : image.files,
     };
-    create(data);
+      create(data);
   }
 
   resetError(event){
