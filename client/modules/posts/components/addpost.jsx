@@ -16,7 +16,7 @@ class AddPost extends React.Component{
         </div>
 
         <div className="row">
-          <form clclassNameass="col s12" onSubmit={this.craetepost.bind(this)} enctype="multipart/form-data">
+          <form clclassNameass="col s12" onSubmit={this.createPost.bind(this)} enctype="multipart/form-data">
             <div className="row">
               <div className="input-field col s12">
                 <input type="file" ref="image" name="fileToUpload" id="fileToUpload" />
@@ -46,7 +46,7 @@ class AddPost extends React.Component{
     );
   }
 
-  craetepost(event){
+  createPost(event){
     if(event && event.preventDefault){
       event.preventDefault();
     }
@@ -59,8 +59,6 @@ class AddPost extends React.Component{
       body : body.value,
       image : image.files,
     };
-  //  console.log(image.files[0]);
-
     create(data);
   }
 

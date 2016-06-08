@@ -18,7 +18,7 @@ class Home extends React.Component {
           <p className="grey-text text-darken-3 lighten-3">Welcome to justskis mantra where all the mantra is..<a href="/posts">start browsing matras</a> .</p>
         </div>
       </div>
-        <div className="parallax-container"  style={{"min-height":"900px","height":"100vh"}}>
+        <div className="parallax-container"  style={{"minHeight":"900px","height":"100vh"}}>
           <div className="parallax"><img src="/img/bg_6.jpg" / ></div>
         </div>
         </div>
