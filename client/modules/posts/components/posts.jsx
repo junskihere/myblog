@@ -47,11 +47,12 @@ class Posts extends React.Component{
                   </div>
                   <div className="card-content">
                   <span className="card-title activator grey-text text-darken-4">{post.title}<i className="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
+                  <p><a href={"posts/viewpost/"+post._id}>Read More</a></p>
                 </div>
                 <div className="card-reveal">
-                  <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-                  <p>{post.body}</p>
+                  <span className="card-title grey-text text-darken-4">{post.title}<i className="material-icons right">close</i></span>
+                  <p>{post.body.slice(0,50) + " ..."}</p>
+                  <p><a href={"posts/viewpost/"+post._id}>Read More</a></p>
                 </div>
               </div>
               </li>

@@ -1,10 +1,10 @@
 import React from 'react';
-
+import ReactQuill from 'react-quill';
 class Viewpost extends React.Component {
   render() {
     const {post} = this.props;
     return (
-      <div className="container " style={{"margin-top":"10%"}}>
+      <div className="container " style={{"marginTop":"10%"}}>
           <div className="row center ">
           {
             post ?
@@ -14,7 +14,10 @@ class Viewpost extends React.Component {
                 </div>
 
                 <div className="col s12">
-                  <p >{post.body}</p>
+                  <ReactQuill    readOnly="true"
+                                      value={post.body}
+                                      id="body"
+                      />
                     <div className="chip ">
                         <img src="http://materializecss.com/images/yuna.jpg" alt="Contact Person" />
                        Jane Doe

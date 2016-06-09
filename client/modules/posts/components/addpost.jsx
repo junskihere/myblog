@@ -1,6 +1,7 @@
 import React from 'react';
-
-
+import ReactQuill from 'react-quill';
+import '/node_modules/react-quill/node_modules/quill/dist/quill.base.css';
+import '/node_modules/react-quill/node_modules/quill/dist/quill.snow.css';
 
 
 class AddPost extends React.Component{
@@ -9,8 +10,11 @@ class AddPost extends React.Component{
     const error= this.props;
 
 
+
     return (
+
       <div className="container">
+
         <div className="row">
           <div className="card-panel  blue-grey lighten-5 valign center"><h4>Add new post</h4></div>
         </div>
@@ -31,9 +35,16 @@ class AddPost extends React.Component{
             </div>
             <div className="row">
               <div className="input-field col s12">
-                <textarea ref="body" id="textarea1" className={error.title ? "materialize-textarea invalid": "materialize-textarea"}  length="120" onClick={this.resetError.bind(this)}></textarea>
-                <label for="textarea1">Body</label>
-                  {error.body ?  <span className="errorSpan" style={{color:"red"}}>{error.body}</span>: null}
+                {/*<textarea ref="body" id="textarea1" className={error.title ? "materialize-textarea invalid": "materialize-textarea"}  length="120" onClick={this.resetError.bind(this)}></textarea>*/}
+                <ReactQuill  theme="snow"
+                                  value={this.refs.body}
+                                  ref="editor"
+                                  id="body"
+                                  style={{"minHeight":"500px"}}
+                                  className={error.title ? "materialize-textarea invalid": "materialize-textarea"}
+                                  onClick={this.resetError.bind(this)}
+                  />
+
               </div>
             </div>
 
@@ -53,10 +64,12 @@ class AddPost extends React.Component{
 
     const {create} = this.props;
 
-    const {title,body,image} = this.refs;
+    const {title,editor,image} = this.refs;
+    const body =  editor.getEditor().container.outerHTML;
+
     const data = {
       title : title.value,
-      body : body.value,
+      body :body,
       images : image.files,
     };
       create(data);

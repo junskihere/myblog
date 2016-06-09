@@ -35,7 +35,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     },
   });
 
-  FlowRouter.route('/viewpost/:postId', {
+  FlowRouter.route('/posts/viewpost/:postId', {
     name: 'viewpost',
     action({postId}) {
       mount(SingleImageLayoutCtx, {
