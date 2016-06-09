@@ -43,7 +43,7 @@ class Posts extends React.Component{
               <li className="col s12 m3"  key={post._id} >
                 <div className="card small">
                   <div className="card-image waves-effect waves-block waves-light ">
-                    <img className="activator" src="https://materiell.com/wp-content/uploads/2015/03/john-small.png" />
+                    <img className="activator" src={post.images.secure_url.replace("upload/","upload/w_150,h_100,c_fill/")} />
                   </div>
                   <div className="card-content">
                   <span className="card-title activator grey-text text-darken-4">{post.title}<i className="material-icons right">more_vert</i></span>

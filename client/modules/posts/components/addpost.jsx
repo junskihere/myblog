@@ -19,7 +19,7 @@ class AddPost extends React.Component{
           <form clclassNameass="col s12" onSubmit={this.createPost.bind(this)} enctype="multipart/form-data">
             <div className="row">
               <div className="input-field col s12">
-                <input type="file" ref="image" name="fileToUpload" id="fileToUpload" multiple />
+                <input type="file" ref="image" name="fileToUpload" id="fileToUpload"  />
                 </div>
             </div>
             <div className="row">

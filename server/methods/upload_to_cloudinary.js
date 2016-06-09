@@ -7,28 +7,26 @@ import {check} from 'meteor/check';
 
 export default function () {
   Meteor.methods({
-    'createPost'(post) {
-      check(post,Object);
+    'createPost'(formData) {
+      check(formData,Object);
       return new Promise((resolve)=>{
-        uploadImage(post.images).then(result=> {
-          console.log(result);
+        uploadImage(formData.images).then(result=> {
+          const post = new Post();
+          post.title = formData.title;
+          post.body = formData.body;
+          post.user_id = Meteor.userId();
+          post.images  = result;
+          post.createdAt = new Date();
+          post.save((err)=>{
+            if(err){
+              const errors = err.details[0];
+              throw new Error(errors.message);
+            }
+            console.log("hello");
 
-          // const post = new Post();
-          // post.title = image.title;
-          // post.body = image.body;
-          // post.user_id = Meteor.uuid();
-          // post.images  = result;
-          // post.createdAt = new Date();
-          // post.save((err)=>{
-          //   if(err){
-          //     const errors = err.details[0];
-          //     throw new Error(errors.message);
-          //   }
-          //  resolve("Created Transaction");
-        //  });
+           resolve("Created Transaction");
+         });
         });
-
-
         });
     },
   });
@@ -42,17 +40,12 @@ const  uploadImage  = (images)=>{
             api_key: '264784665157316',
             api_secret: 'DBgUmUAaTYoZ27AokZJ1Gs_QY0c' ,
     });
-    var imagesUrl = [];
-    var dUri = new Datauri();
-    for(var i = 0;i<= images.length;i++){
-      let raw = new Buffer(images[i]);
+      var dUri = new Datauri();
+      let raw = new Buffer(images);
       dUri.format('.png', raw);
       cloudinary.uploader.upload(dUri.content,(result)=> {
-        if(i >= images.length ){
-          resolve(imagesUrl);
-        }
-        imagesUrl.push(result);
+        resolve(result);
       });
-    }
+
   });
 }
