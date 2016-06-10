@@ -16,14 +16,14 @@ export default function () {
           post.body = formData.body;
           post.user_id = Meteor.userId();
           post.images  = result;
+          post.type = formData.type;
+          post.description = formData.description;
           post.createdAt = new Date();
           post.save((err)=>{
             if(err){
               const errors = err.details[0];
               throw new Error(errors.message);
             }
-            console.log("hello");
-
            resolve("Created Transaction");
          });
         });

@@ -5,6 +5,9 @@ import '/node_modules/react-quill/node_modules/quill/dist/quill.snow.css';
 
 
 class AddPost extends React.Component{
+  componentDidMount() {
+    $('.select').material_select();
+  }
 
   render() {
     const error= this.props;
@@ -23,19 +26,50 @@ class AddPost extends React.Component{
           <form clclassNameass="col s12" onSubmit={this.createPost.bind(this)} enctype="multipart/form-data">
             <div className="row">
               <div className="input-field col s12">
-                <input type="file" ref="image" name="fileToUpload" id="fileToUpload"  />
+                  <div className="file-field input-field">
+                        <div className="waves-effect waves-light btn blue darken-3">
+                          <span>File</span>
+                          <input type="file" ref="image" name="fileToUpload" id="fileToUpload"  />
+                        </div>
+                        <div className="file-path-wrapper">
+                          <input className="file-path validate" type="text" />
+                        </div>
+                      </div>
                 </div>
             </div>
+
             <div className="row">
-              <div className="input-field col s6" >
+              <div className="input-field col s12" >
                 <input ref="title" id="input_text" type="text" length="10" className={error.title ? "invalid": ""}  onClick={this.resetError.bind(this)}/>
                 <label for="input_text">Title</label>
                   {error.title ?  <span className="errorSpan" style={{color:"red"}}>{error.title}</span>: null}
               </div>
             </div>
+
+
             <div className="row">
               <div className="input-field col s12">
-                {/*<textarea ref="body" id="textarea1" className={error.title ? "materialize-textarea invalid": "materialize-textarea"}  length="120" onClick={this.resetError.bind(this)}></textarea>*/}
+                  <textarea ref="description" id="textarea1"  className="materialize-textarea" length="120" onClick={this.resetError.bind(this)}></textarea>
+                    <label for="textarea1">Description</label>
+              </div>
+            </div>
+
+
+            <div className="row">
+              <div className="input-field col s12">
+                <select ref="type" className="select">
+                      <option  value="article" selected>article</option>
+                      <option  value="video">video</option>
+                      <option  value="image">image</option>
+                </select>
+                <label>Post type</label>
+                </div>
+            </div>
+
+
+
+            <div className="row">
+              <div className="input-field col s12 blue lighten-5">
                 <ReactQuill  theme="snow"
                                   value={this.refs.body}
                                   ref="editor"
@@ -47,7 +81,6 @@ class AddPost extends React.Component{
 
               </div>
             </div>
-
             <button type="submit" className="waves-effect waves-light btn blue darken-3">submit</button>
           </form>
         </div>
@@ -64,12 +97,14 @@ class AddPost extends React.Component{
 
     const {create} = this.props;
 
-    const {title,editor,image} = this.refs;
+    const {title,editor,image,description, type} = this.refs;
     const body =  editor.getEditor().container.outerHTML;
 
     const data = {
       title : title.value,
+      type: type.value,
       body :body,
+      description: description.value,
       images : image.files,
     };
       create(data);
