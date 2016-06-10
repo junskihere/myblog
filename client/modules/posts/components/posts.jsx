@@ -19,12 +19,21 @@ class Posts extends React.Component{
        }
 
     return(
-      <div className="container">
-      <div className="row  ">
-              <PostLists posts={posts} />
+        <div className="container">
+
+        <div className="row center">
+          <h1>ads napod diri</h1>
         </div>
-            <AddPostButton />
-      </div>
+
+        <div className="row  ">
+                <PostLists posts={posts} />
+        </div>
+
+        <AddPostButton />
+
+
+    </div>
+
     );
   }
 
@@ -43,7 +52,7 @@ class Posts extends React.Component{
               <li className="col s12 m3"  key={post._id} >
                 <div className="card small">
                   <div className="card-image waves-effect waves-block waves-light ">
-                    <img className="activator" src={post.images.secure_url.replace("upload/","upload/w_150,h_100,c_fill/")} />
+                    <img className="activator" src={post.images.secure_url.replace("upload/","upload/w_300,h_200,c_fill/")} />
                   </div>
                   <div className="card-content">
                   <span className="card-title activator grey-text text-darken-4">{post.title}<i className="material-icons right">more_vert</i></span>
@@ -51,7 +60,7 @@ class Posts extends React.Component{
                 </div>
                 <div className="card-reveal">
                   <span className="card-title grey-text text-darken-4">{post.title}<i className="material-icons right">close</i></span>
-                  <p>{post.body.slice(0,50) + " ..."}</p>
+                <p>{post.description}</p>
                   <p><a href={"posts/viewpost/"+post._id}>Read More</a></p>
                 </div>
               </div>
