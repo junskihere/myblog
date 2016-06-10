@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
+import OpenGraphTags from './open_graph_tags.jsx';
+
 class Viewpost extends React.Component {
   render() {
     const {post} = this.props;
     return (
+      <div>
+        <OpenGraphTags post={post} />
       <div className="container " style={{"marginTop":"10%"}}>
           <div className="row center ">
           {
@@ -14,8 +18,9 @@ class Viewpost extends React.Component {
                 </div>
 
                 <div className="col s12">
-                  <ReactQuill    readOnly="true"
+                  <ReactQuill    readOnly={true}
                                       value={post.body}
+                                      defaultValue={post.body}
                                       id="body"
                       />
                     <div className="chip ">
@@ -36,15 +41,16 @@ class Viewpost extends React.Component {
           </div>
           <div className="row center">
             <div className="col s12 m6">
-              <h1>Adds here</h1>
+              <h1>Ads here</h1>
             </div>
             <div className="col s12 m6">
-              <h1>Adds here</h1>
+              <h1>Ads here</h1>
             </div>
 
           </div>
 
 
+      </div>
       </div>
     );
   }
