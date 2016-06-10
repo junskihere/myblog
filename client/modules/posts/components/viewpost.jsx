@@ -18,10 +18,9 @@ class Viewpost extends React.Component {
                 </div>
 
                 <div className="col s12">
-                  <ReactQuill    readOnly={true}
+                  <ReactQuill    className="justify"
+                                      readOnly={true}
                                       value={post.body}
-                                      defaultValue={post.body}
-                                      id="body"
                       />
                     <div className="chip ">
                         <img src="http://materializecss.com/images/yuna.jpg" alt="Contact Person" />
