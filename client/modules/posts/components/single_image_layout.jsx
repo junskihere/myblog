@@ -9,7 +9,7 @@ class SingleImageLayout extends React.Component {
   render() {
     const {content} = this.props;
     return (
-      <div >
+      <div>      
       { /** <div className="parallax-container">
             <div className="row">
                 <div className="col s12">

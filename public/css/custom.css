@@ -2,7 +2,35 @@ body {
    display: flex;
    min-height: 100vh;
    flex-direction: column;
+   background-image: url("/img/weather.png"), -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(247,230,230,1) 100%); /* ff3.6+ */
+   background-image: url("/img/weather.png"), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(247,230,230,1))); /* safari4+,chrome */
+   background-image: url("/img/weather.png"), -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(247,230,230,1) 100%); /* safari5.1+,chrome10+ */
+   background-image: url("/img/weather.png"), -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(247,230,230,1) 100%); /* opera 11.10+ */
+   background-image: url("/img/weather.png"), -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(247,230,230,1) 100%); /* ie10+ */
+   background-image: url("/img/weather.png"), radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(247,230,230,1) 100%); /* w3c */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F7E6E6',GradientType=0 ); /* ie6-9 */
+   background-repeat: repeat-x;
  }
+
+ .mygradient {
+   background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(128,128,128,1) 100%); /* ff3.6+ */
+   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(128,128,128,1))); /* safari4+,chrome */
+   background:-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(128,128,128,1) 100%); /* safari5.1+,chrome10+ */
+   background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(128,128,128,1) 100%); /* opera 11.10+ */
+   background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(128,128,128,1) 100%); /* ie10+ */
+   background:radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(128,128,128,1) 100%); /* w3c */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#808080',GradientType=0 ); /* ie6-9 */
+ }
+
+
+ .blur {
+   -webkit-filter: blur(5px);
+   -moz-filter: blur(5px);
+   -o-filter: blur(5px);
+   -ms-filter: blur(5px);
+   filter: blur(5px);
+ }
+
 
  main {
    flex: 1 0 auto;

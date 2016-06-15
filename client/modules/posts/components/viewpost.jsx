@@ -9,7 +9,7 @@ class Viewpost extends React.Component {
       <div>
         <OpenGraphTags post={post} />
       <div className="container " style={{"marginTop":"10%"}}>
-          <div className="row center ">
+          <div className="row center">
           {
             post ?
             <div>
