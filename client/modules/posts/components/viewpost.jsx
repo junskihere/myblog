@@ -13,11 +13,23 @@ class Viewpost extends React.Component {
           {
             post ?
             <div>
-                <div className="col s12">
+
+
+                <div className="col s9">
                   <h1>{post.title}</h1>
                 </div>
 
-                <div className="col s12">
+
+
+                <div className="col s9  center">
+                  <img src={post.images.secure_url.replace("upload/","upload/w_600,h_400,c_fill/")} alt="Contact Person" />
+                </div>
+
+                <div className="col s3">
+                  <h1>ads here</h1>
+                </div>
+
+                <div className="col s9">
                   <ReactQuill    className="justify"
                                       readOnly={true}
                                       value={post.body}
@@ -26,6 +38,10 @@ class Viewpost extends React.Component {
                         <img src="http://materializecss.com/images/yuna.jpg" alt="Contact Person" />
                        Jane Doe
                     </div>
+                </div>
+
+                <div className="col s3">
+                  <h1>ads here</h1>
                 </div>
 
             </div>
@@ -38,7 +54,8 @@ class Viewpost extends React.Component {
             </div>
           }
           </div>
-          <div className="row center">
+
+          {/** <div className="row center">
             <div className="col s12 m6">
               <h1>Ads here</h1>
             </div>
@@ -47,7 +64,7 @@ class Viewpost extends React.Component {
             </div>
 
           </div>
-
+          */ }
 
       </div>
       </div>
