@@ -4,26 +4,26 @@ import '/node_modules/quill/dist/quill.base.css';
 import '/node_modules/quill/dist/quill.snow.css';
 
 
-class AddPost extends React.Component{
+class Edit extends React.Component{
   componentDidMount() {
     $('.select').material_select();
   }
 
   render() {
     const error= this.props;
-
-
+    const {posts} = this.props;
+    console.log(posts);
 
     return (
 
       <div className="container">
 
         <div className="row">
-          <div className="card-panel  blue-grey lighten-5 valign center"><h4>Add new post</h4></div>
+          <div className="card-panel  blue-grey lighten-5 valign center"><h4>Edit Post</h4></div>
         </div>
 
         <div className="row">
-          <form className="col s12" onSubmit={this.createPost.bind(this)} encType="multipart/form-data">
+          <form className="col s12" onSubmit={this.updatePost.bind(this)} encType="multipart/form-data">
             <div className="row">
               <div className="input-field col s12">
                   <div className="file-field input-field">
@@ -40,7 +40,7 @@ class AddPost extends React.Component{
 
             <div className="row">
               <div className="input-field col s12" >
-                <input ref="title" id="input_text" type="text" min="10" className={error.title ? "invalid": ""}  onClick={this.resetError.bind(this)}/>
+                <input defaultValue={posts.title} ref="title" id="input_text" type="text" min="10" className={error.title ? "invalid": ""}  onClick={this.resetError.bind(this)}/>
                 <label htmlFor="input_text">Title</label>
                   {error.title ?  <span className="errorSpan" style={{color:"red"}}>{error.title}</span>: null}
               </div>
@@ -49,7 +49,7 @@ class AddPost extends React.Component{
 
             <div className="row">
               <div className="input-field col s12">
-                  <textarea ref="description" id="textarea1"  className="materialize-textarea" min="120" onClick={this.resetError.bind(this)}></textarea>
+                  <textarea defaultValue={posts.description} ref="description" id="textarea1"  className="materialize-textarea" min="120" onClick={this.resetError.bind(this)}></textarea>
                     <label htmlFor="textarea1">Description</label>
               </div>
             </div>
@@ -57,8 +57,8 @@ class AddPost extends React.Component{
 
             <div className="row">
               <div className="input-field col s12">
-                <select ref="type" className="select">
-                      <option  value="article" defaultValue>article</option>
+                <select ref="type" className="select" defaultValue={posts.type}>
+                      <option  value="article">article</option>
                       <option  value="video">video</option>
                       <option  value="image">image</option>
                 </select>
@@ -71,11 +71,10 @@ class AddPost extends React.Component{
             <div className="row">
               <div className="input-field col s12 blue lighten-5">
                 <ReactQuill  theme="snow"
-                                  defaultValue={this.refs.body}
+                                  defaultValue={posts.body}
                                   ref="editor"
                                   id="body"
                                   style={{"minHeight":"500px"}}
-                                  className={error.title ? "materialize-textarea invalid": "materialize-textarea"}
                                   onClick={this.resetError.bind(this)}
                   />
 
@@ -90,12 +89,12 @@ class AddPost extends React.Component{
     );
   }
 
-  createPost(event){
+  updatePost(event){
     if(event && event.preventDefault){
       event.preventDefault();
     }
 
-    const {create} = this.props;
+    const {updatePost, posts} = this.props;
 
     const {title,editor,image,description, type} = this.refs;
     const body =  editor.getEditor().container.outerHTML;
@@ -106,8 +105,9 @@ class AddPost extends React.Component{
       body :body,
       description: description.value,
       images : image.files,
+      posts_id : posts._id,
     };
-      create(data);
+      updatePost(data);
   }
 
   resetError(event){
@@ -120,4 +120,4 @@ class AddPost extends React.Component{
 
 }
 
-export default AddPost;
+export default Edit;

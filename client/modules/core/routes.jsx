@@ -13,7 +13,7 @@ export default function (injectDeps, {FlowRouter}) {
     },
   };
 
-  FlowRouter.route('/', {
+  FlowRouter.route('/home', {
     name: 'home',
     action() {
       mount(MainLayoutCtx, {

@@ -1,26 +1,21 @@
-import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
+import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import Posts from '/lib/collections/posts.js';
-
-
-import Viewpost from '../components/viewpost.jsx';
+import Edit from '../components/edit.jsx';
 
 export const composer = ({context , postId}, onData) => {
   const {Meteor} = context();
   if(Meteor.subscribe("post.view",postId).ready()){
-    const post = Posts.findOne({_id:postId});
-    onData(null, {post});
+    const posts = Posts.findOne({_id:postId});
+    onData(null, {posts});
   }
-
-
-
-  return;
 };
 
-export const depsMapper = (context) => ({
+export const depsMapper = (context, actions) => ({
   context: () => context,
+  updatePost:actions.posts.updatePost,
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(Viewpost);
+)(Edit);

@@ -7,6 +7,7 @@ import SingleImageLayout from './components/single_image_layout.jsx';
 import Posts from './containers/posts.js';
 import AddPost from './containers/addpost.js';
 import ViewPost from './containers/viewpost.js';
+import EditPost from './containers/edit.js';
 import LoadingPage from '../core/components/loading_page.jsx';
 import Auth from '/client/modules/auth/containers/auth.js';
 
@@ -26,6 +27,16 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     },
   });
 
+  FlowRouter.route('/', {
+    name: 'posts',
+    action() {
+      mount( SingleImageLayoutCtx,{
+         content: () => (<Posts  loadingpage={LoadingPage}/>),
+      });
+    },
+  });
+
+
   FlowRouter.route('/addpost', {
     name: 'addposts',
     action() {
@@ -40,6 +51,15 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     action({postId}) {
       mount(SingleImageLayoutCtx, {
          content: () => (<ViewPost postId={postId} />),
+      });
+    },
+  });
+
+  FlowRouter.route('/posts/edit/:postId', {
+    name: 'editpost',
+    action({postId}) {
+      mount(SingleImageLayoutCtx, {
+         content: () => (<EditPost postId={postId} />),
       });
     },
   });

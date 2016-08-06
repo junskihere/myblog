@@ -1,5 +1,5 @@
 import React from 'react';
-import AddPostButton from './addpostbutton.jsx';
+
 
 
 
@@ -29,7 +29,7 @@ class Posts extends React.Component{
                 <PostLists posts={posts} />
         </div>
 
-        <AddPostButton />
+
 
 
     </div>

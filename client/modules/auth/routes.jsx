@@ -8,7 +8,7 @@ import Login from './containers/login.js';
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(Layout);
 
-  FlowRouter.route('/register', {
+  FlowRouter.route('/junskihere-register', {
     name: 'Register',
     action() {
       mount(MainLayoutCtx, {
@@ -17,7 +17,7 @@ export default function (injectDeps, {FlowRouter}) {
     },
   });
 
-  FlowRouter.route('/login', {
+  FlowRouter.route('/junskihere-login', {
     name: 'Login',
     action() {
       mount(MainLayoutCtx, {

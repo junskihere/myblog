@@ -5,7 +5,7 @@ import {DocHead} from 'meteor/kadira:dochead';
 import coreModule from './modules/core';
 import postsModule from './modules/posts';
 import authModule from './modules/auth';
-import commentsModule from './modules/comments';
+
 
 
 
@@ -17,7 +17,6 @@ const app = createApp(context);
 app.loadModule(coreModule);
 app.loadModule(postsModule);
 app.loadModule(authModule);
-app.loadModule(commentsModule);
 
 app.init();
 
@@ -28,7 +27,7 @@ var custom = {rel: "stylesheet",type:"text/css", href: "/css/custom.css"};
 var MUI = {rel: "stylesheet",type:"text/css", href: "/css/materialize.min.css"};
 var Jquery = {rel: "text/javascript",type:"text/css", href: "/js/jquery-1.12.3.min.js"};
 var metaInfo = {name: "viewport", content: "width=device-width, initial-scale=1.0"};
-var title = "Juns-kis Mantra";
+var title = "JunskiHere";
 
 DocHead.setTitle(title);
 DocHead.addLink(Jquery);

@@ -1,7 +1,7 @@
 import {Meteor} from 'meteor/meteor';
 import cloudinary from "cloudinary";
 import Datauri from "datauri";
-import Post from '/lib/collections/posts.js';
+import PostSchema from '/lib/collections/posts.js';
 import {check} from 'meteor/check';
 
 
@@ -11,7 +11,7 @@ export default function () {
       check(formData,Object);
       return new Promise((resolve)=>{
         uploadImage(formData.images).then(result=> {
-          const post = new Post();
+          const post = new PostSchema();
           post.title = formData.title;
           post.body = formData.body;
           post.user_id = Meteor.userId();
@@ -28,6 +28,29 @@ export default function () {
          });
         });
         });
+    },
+    'updatePost'(formData) {
+      check(formData,Object);
+      return new Promise((resolve)=>{
+        uploadImage(formData.images).then(result=> {
+        //  const postCol = new PostSchema();
+          var post = PostSchema.findOne({_id:formData.posts_id});
+          post._id = formData.posts_id;
+          post.title = formData.title;
+          post.body = formData.body;
+          post.user_id = Meteor.userId();
+          post.images  = result;
+          post.type = formData.type;
+          post.description = formData.description;
+          post.save((err)=>{
+            if(err){
+              const errors = err.details[0];
+              throw new Meteor.Error(errors.message);
+            }
+           resolve("Created Transaction");
+         });
+        });
+      });
     },
   });
 }
