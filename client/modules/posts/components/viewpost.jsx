@@ -30,7 +30,7 @@ class Viewpost extends React.Component {
                 </div>
 
                 <div className="col s9">
-                  <ReactQuill    className="justify"
+                  <ReactQuill className="justify"
                                       readOnly={true}
                                       value={post.body}
                       />
@@ -55,16 +55,6 @@ class Viewpost extends React.Component {
           }
           </div>
 
-          {/** <div className="row center">
-            <div className="col s12 m6">
-              <h1>Ads here</h1>
-            </div>
-            <div className="col s12 m6">
-              <h1>Ads here</h1>
-            </div>
-
-          </div>
-          */ }
 
       </div>
       </div>

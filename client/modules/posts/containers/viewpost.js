@@ -11,9 +11,6 @@ export const composer = ({context , postId}, onData) => {
     onData(null, {post});
   }
 
-
-
-  return;
 };
 
 export const depsMapper = (context) => ({
