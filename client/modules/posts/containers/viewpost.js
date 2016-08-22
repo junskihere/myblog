@@ -5,10 +5,10 @@ import Posts from '/lib/collections/posts.js';
 import Viewpost from '../components/viewpost.jsx';
 
 export const composer = ({context , postId}, onData) => {
-  const {Meteor} = context();
+  const {Meteor, FlowRouter} = context();
   if(Meteor.subscribe("post.view",postId).ready()){
     const post = Posts.findOne({_id:postId});
-    onData(null, {post});
+    onData(null, {post, Meteor, FlowRouter});
   }
 
 };

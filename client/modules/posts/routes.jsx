@@ -58,8 +58,8 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
   FlowRouter.route('/posts/edit/:postId', {
     name: 'editpost',
     action({postId}) {
-      mount(SingleImageLayoutCtx, {
-         content: () => (<EditPost postId={postId} />),
+      mount(AuthCheck, {
+      MainLayout, content: () => (<EditPost postId={postId} />),
       });
     },
   });

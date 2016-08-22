@@ -6,7 +6,6 @@ class Auth extends React.Component{
       const { waitingForAuthData } = this.props;
 
       if(waitingForAuthData){
-
               return(
                       <div>
                         <MainLayout  content={LoadingPage}/>
