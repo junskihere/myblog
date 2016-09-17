@@ -23,7 +23,7 @@ export const composer = ({context}, onData) => {
     if(err){
         console.log(err);
     }
-    onData(null,{posts});
+    onData(null,{posts,Meteor});
   });
 
 

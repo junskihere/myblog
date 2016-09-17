@@ -4,6 +4,8 @@ import NavBar from './Navbar/top.jsx';
 
 
 class Layout extends React.Component {
+
+
   render() {
       const {content, Meteor} = this.props;
       return(

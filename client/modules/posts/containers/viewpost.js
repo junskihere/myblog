@@ -6,8 +6,11 @@ import Viewpost from '../components/viewpost.jsx';
 
 export const composer = ({context , postId}, onData) => {
   const {Meteor, FlowRouter} = context();
+  let post= null;
   if(Meteor.subscribe("post.view",postId).ready()){
-    const post = Posts.findOne({_id:postId});
+     post = Posts.findOne({_id:postId});
+    onData(null, {post, Meteor, FlowRouter});
+  }else {
     onData(null, {post, Meteor, FlowRouter});
   }
 

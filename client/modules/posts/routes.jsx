@@ -11,7 +11,6 @@ import EditPost from './containers/edit.js';
 import LoadingPage from '../core/components/loading_page.jsx';
 import Auth from '/client/modules/auth/containers/auth.js';
 
-
 export default function (injectDeps, {FlowRouter}) {
 const AuthCheck = injectDeps(Auth);
 const MainLayoutCtx = injectDeps(MainLayout);
