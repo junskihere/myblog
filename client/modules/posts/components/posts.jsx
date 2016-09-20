@@ -41,7 +41,7 @@ class Posts extends React.Component{
                         <div className="card-reveal">
                           <span className="card-title grey-text text-darken-4">{post.title}<i className="material-icons right">close</i></span>
                         <p>{post.description}</p>
-                          <p><a href={"posts/viewpost/"+post._id}>Read More</a></p>
+                          <p><a href="#"  onClick={this.viewPost.bind(this, post._id)}>Read More</a></p>
                         </div>
                       </div>
                       </li>
