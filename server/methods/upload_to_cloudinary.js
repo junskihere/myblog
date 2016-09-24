@@ -15,6 +15,8 @@ export default function () {
       return new Promise((resolve)=>{
         uploadImage(formData.images).then(result=> {
           const post = new PostSchema();
+          post.slug = formData.title.split(' ').join('-');
+          post.slug = post.slug.toLowerCase();
           post.title = formData.title;
           post.body = formData.body;
           post.user_id = Meteor.userId();
@@ -41,6 +43,8 @@ export default function () {
           uploadImage(formData.images).then(result=> {
             var post = PostSchema.findOne({_id:formData.posts_id});
             post._id = formData.posts_id;
+            post.slug =formData.title.split(' ').join('-');
+            post.slug = post.slug.toLowerCase();
             post.title = formData.title;
             post.body = formData.body;
             post.user_id = Meteor.userId();
@@ -59,6 +63,8 @@ export default function () {
       }else {
         var post = PostSchema.findOne({_id:formData.posts_id});
         post._id = formData.posts_id;
+        post.slug =formData.title.split(' ').join('-');
+        post.slug = post.slug.toLowerCase();
         post.title = formData.title;
         post.body = formData.body;
         post.user_id = Meteor.userId();

@@ -8,7 +8,7 @@ export const composer = ({context , postId}, onData) => {
   const {Meteor, FlowRouter} = context();
   let post= null;
   if(Meteor.subscribe("post.view",postId).ready()){
-     post = Posts.findOne({_id:postId});
+     post = Posts.findOne({slug:postId});
     onData(null, {post, Meteor, FlowRouter});
   }else {
     const waitingForSubscriptions = true;

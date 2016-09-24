@@ -9,6 +9,6 @@ export default function () {
   });
 
   Meteor.publish('post.view', function (postId) {
-    return Post.find({_id:postId});
+    return Post.find({slug:postId});
   });
 }
