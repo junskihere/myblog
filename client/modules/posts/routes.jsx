@@ -49,7 +49,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     name: 'viewpost',
     action({postId}) {
       mount(SingleImageLayoutCtx, {
-         content: () => (<ViewPost postId={postId} />),
+         content: () => (<ViewPost postId={postId} loadingpage={LoadingPage}/>),
       });
     },
   });

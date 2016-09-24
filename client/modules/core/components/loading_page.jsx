@@ -2,8 +2,10 @@ import React from 'react';
 
 
 const LoadingPage = () => (
-  <div>
-      <h1>Loading Page</h1>
+  <div className="cssload-loader">
+  	<div className="cssload-dot"></div>
+  	<div className="cssload-dot"></div>
+  	<div className="cssload-dot"></div>
   </div>
 );
 

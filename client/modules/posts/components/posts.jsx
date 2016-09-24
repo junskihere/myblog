@@ -6,8 +6,7 @@ import React from 'react';
 class Posts extends React.Component{
 
   render() {
-    const {posts,loadingpage} = this.props;
-    const { waitingForSubscriptions } = this.props;
+    const {posts,loadingpage,waitingForSubscriptions} = this.props;
        if(waitingForSubscriptions){
                return(
                  <div className="container">

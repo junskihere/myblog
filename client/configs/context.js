@@ -5,6 +5,13 @@ import {ReactiveDict} from 'meteor/reactive-dict';
 import {Tracker} from 'meteor/tracker';
 
 
+Meteor.startup(function() {
+		setTimeout(function() {
+			$("#inject-loader-wrapper").fadeOut(500, function() { $(this).remove(); });
+		}, 500);
+	});
+
+
 const authCommon = function () {
 
   let userSubReady = Meteor.subscribe('users.current').ready();

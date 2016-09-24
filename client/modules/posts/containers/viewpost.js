@@ -11,7 +11,8 @@ export const composer = ({context , postId}, onData) => {
      post = Posts.findOne({_id:postId});
     onData(null, {post, Meteor, FlowRouter});
   }else {
-    onData(null, {post, Meteor, FlowRouter});
+    const waitingForSubscriptions = true;
+     onData(null, {waitingForSubscriptions});
   }
 
 };
