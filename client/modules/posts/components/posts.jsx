@@ -23,7 +23,7 @@ class Posts extends React.Component{
 
     return(
 
-        <div className="container">
+        <div className="container" style={{"marginTop":"5%"}}>
 
           <div className="row center">
             <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="8164233941"></ins>
@@ -63,11 +63,7 @@ class Posts extends React.Component{
     );
   }
 
-  componentDidUpdate(){
-    // $('.collapsible').collapsible({
-    //   accordion : true ,// A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    // });
-  }
+
 
   viewPost(postId, e){
     if(e && e.preventDefault){
@@ -75,7 +71,7 @@ class Posts extends React.Component{
     }
     const {Meteor} = this.props;
 
-    window.open(Meteor.absoluteUrl() + "posts/viewpost/" + postId, '_blank');
+    window.open(Meteor.absoluteUrl() + "viewpost/" + postId, '_blank');
   }
 
 }

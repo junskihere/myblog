@@ -7,7 +7,7 @@ class Viewpost extends React.Component {
 
 
   componentDidUpdate(){
-    (adsbygoogle = window.adsbygoogle || []).push({});
+
 
     const {post} = this.props;
     if(post){
@@ -29,21 +29,13 @@ class Viewpost extends React.Component {
 
     }
 
-
+    (adsbygoogle = window.adsbygoogle || []).push({});
   }
 
 
   render() {
     const {post, Meteor, FlowRouter, waitingForSubscriptions, loadingpage} = this.props;
-    if(waitingForSubscriptions === "goo"){
-      return (
-        <div className="container" style={{"marginTop":"20%"}}>
-             <div className="row ">
-               {loadingpage()}
-            </div>
-       </div>
-     );
-    }else {
+
       return (
         <div>
           <div id="fb-root"></div>
@@ -67,7 +59,7 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                    <ins class="adsbygoogle" style={{display:block}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
+                    <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
                   </div>
 
                   <div className="col s9 animated fadeInUp">
@@ -76,7 +68,7 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                      <ins class="adsbygoogle" style={{display:block}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
+                      <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
                   </div>
 
               </div>
@@ -85,7 +77,7 @@ class Viewpost extends React.Component {
               :
 
               <div className="row center">
-                <h1>Post not found</h1>
+                <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
               </div>
             }
             </div>
@@ -94,7 +86,7 @@ class Viewpost extends React.Component {
         </div>
         </div>
       );
-    }
+
 
 
 

@@ -4,11 +4,11 @@ import Posts from '/lib/collections/posts.js';
 
 import Viewpost from '../components/viewpost.jsx';
 
-export const composer = ({context , postId}, onData) => {
+export const composer = ({context , slug}, onData) => {
   const {Meteor, FlowRouter} = context();
   let post= null;
-  if(Meteor.subscribe("post.view",postId).ready()){
-     post = Posts.findOne({slug:postId});
+  if(Meteor.subscribe("post.view",slug).ready()){
+     post = Posts.findOne({slug:slug});
     onData(null, {post, Meteor, FlowRouter});
   }else {
     const waitingForSubscriptions = true;

@@ -17,16 +17,14 @@ const MainLayoutCtx = injectDeps(MainLayout);
 const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
 
 
-  FlowRouter.route('/posts', {
+  FlowRouter.route('/', {
     name: 'posts',
     action() {
-      mount( SingleImageLayoutCtx,{
-         content: () => (<Posts  loadingpage={LoadingPage}/>),
-      });
+      FlowRouter.go("/posts");
     },
   });
 
-  FlowRouter.route('/', {
+  FlowRouter.route('/posts', {
     name: 'posts',
     action() {
       mount( SingleImageLayoutCtx,{
@@ -45,11 +43,11 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     },
   });
 
-  FlowRouter.route('/posts/viewpost/:postId', {
+  FlowRouter.route('/viewpost/:slug', {
     name: 'viewpost',
-    action({postId}) {
+    action({slug}) {
       mount(SingleImageLayoutCtx, {
-         content: () => (<ViewPost postId={postId} loadingpage={LoadingPage}/>),
+         content: () => (<ViewPost slug={slug} loadingpage={LoadingPage}/>),
       });
     },
   });

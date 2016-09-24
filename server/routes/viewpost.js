@@ -11,13 +11,26 @@ var css = '<style type="text/css">#outPopUp{position:absolute;width:300px;height
 
 var specialDiv = '<div id="inject-loader-wrapper"><div id="outPopUp"><div id="cssload-contain" ><div class="cssload-wrap" id="cssload-wrap1"><div class="cssload-ball" id="cssload-ball1"></div></div><div class="cssload-wrap" id="cssload-wrap2"><div class="cssload-ball" id="cssload-ball2"></div></div><div class="cssload-wrap" id="cssload-wrap3"><div class="cssload-ball" id="cssload-ball3"></div></div><div class="cssload-wrap" id="cssload-wrap4"><div class="cssload-ball" id="cssload-ball4"></div></div></div></div></div>';
 
-WebApp.connectHandlers.use("/posts/viewpost/", function(req, res, next) {
 
+WebApp.connectHandlers.use("/posts", function(req, res, next) {
+var google = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+  try {
+      req.dynamicHead = (req.dynamicHead || "") + css + google  + specialDiv;
+    next();
+  } catch (e) {
+    next();
+  }
+});
+
+
+WebApp.connectHandlers.use("/viewpost/", function(req, res, next) {
+var google = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
   try {
     const post_id = req.url.replace("/","");
+
     if(post_id){
 
-      const post = Posts.findOne({_id:post_id});
+      const post = Posts.findOne({slug:post_id});
 
       const url = '<meta property="og:url" content="'+ Meteor.absoluteUrl().slice(0,-1) + req.originalUrl  +'" />';
       const title = '<meta property="og:title" content="'+ post.title +'" /> ';
@@ -25,7 +38,7 @@ WebApp.connectHandlers.use("/posts/viewpost/", function(req, res, next) {
       const type = '<meta property="og:type" content="'+post.article +'" /> ';
       const image =  '<meta property="og:image" content="'+post.images.secure_url+'" /> ';
 
-      req.dynamicHead = (req.dynamicHead || "") + css + url + title + description + type + image + specialDiv;
+      req.dynamicHead = (req.dynamicHead || "") + css + url + google + title + description + type + image + specialDiv;
     }
     next();
   } catch (e) {

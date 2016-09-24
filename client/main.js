@@ -29,14 +29,11 @@ var MUI = {rel: "stylesheet",type:"text/css", href: "/css/materialize.min.css"};
 var Jquery = {rel: "text/javascript",type:"text/script", href: "/js/jquery-1.12.3.min.js"};
 var metaInfo = {name: "viewport", content: "width=device-width, initial-scale=1.0"};
 var title = "JunskiHere";
-var googleAds =  {rel: "text/javascript",type:"text/script", href: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"};
-
-
 
 DocHead.addLink(animate);
 DocHead.setTitle(title);
 DocHead.addLink(Jquery);
-DocHead.addLink(googleAds);
+
 DocHead.addMeta(metaInfo);
 DocHead.addLink(linkInfo);
 DocHead.addLink(MUI);
