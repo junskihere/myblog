@@ -7,6 +7,8 @@ class Viewpost extends React.Component {
 
 
   componentDidUpdate(){
+    (adsbygoogle = window.adsbygoogle || []).push({});
+
     const {post} = this.props;
     if(post){
       window.fbAsyncInit = function() {
@@ -65,7 +67,7 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                    <h1>ads here</h1>
+                    <ins class="adsbygoogle" style={{display:block}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
                   </div>
 
                   <div className="col s9 animated fadeInUp">
@@ -74,7 +76,7 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                    <h1>ads here</h1>
+                      <ins class="adsbygoogle" style={{display:block}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
                   </div>
 
               </div>

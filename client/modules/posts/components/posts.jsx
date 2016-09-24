@@ -4,27 +4,8 @@ import React from 'react';
 
 
 class Posts extends React.Component{
-  componentDidMount(){
-//
-//     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-// <!-- LeaderBoard-1 -->
-// <ins class="adsbygoogle"
-//      style="display:inline-block;width:728px;height:90px"
-//      data-ad-client="ca-pub-3428123242724073"
-//      data-ad-slot="8164233941"></ins>
-// <script>
-// (adsbygoogle = window.adsbygoogle || []).push({});
-// </script>
-// <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-// <!-- side Ads -->
-// <ins class="adsbygoogle"
-//      style="display:block"
-//      data-ad-client="ca-pub-3428123242724073"
-//      data-ad-slot="9640967148"
-//      data-ad-format="auto"></ins>
-// <script>
-// (adsbygoogle = window.adsbygoogle || []).push({});
-// </script>
+  componentDidUpdate(){
+    (adsbygoogle = window.adsbygoogle || []).push({});
   }
 
 
@@ -32,7 +13,7 @@ class Posts extends React.Component{
     const {posts,loadingpage,waitingForSubscriptions} = this.props;
        if(waitingForSubscriptions){
                return(
-                 <div className="container" style={{"marginTop":"40%"}}>
+                 <div className="container" style={{"marginTop":"25%"}}>
                         <div className="row">
                           {loadingpage()}
                        </div>
@@ -43,9 +24,9 @@ class Posts extends React.Component{
     return(
 
         <div className="container">
-          <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="8164233941"></ins>
+
           <div className="row center">
-            <h1>ads napod diri</h1>
+            <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="8164233941"></ins>
           </div>
 
           <div className="row  ">
