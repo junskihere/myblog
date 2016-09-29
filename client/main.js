@@ -29,6 +29,8 @@ var MUI = {rel: "stylesheet",type:"text/css", href: "/css/materialize.min.css"};
 var Jquery = {rel: "text/javascript",type:"text/script", href: "/js/jquery-1.12.3.min.js"};
 var metaInfo = {name: "viewport", content: "width=device-width, initial-scale=1.0"};
 var title = "JunskiHere";
+var icon = {rel: "icon", type: "image/png", href: "/img/favicon.png"};
+DocHead.addLink(icon);
 
 DocHead.addLink(animate);
 DocHead.setTitle(title);
