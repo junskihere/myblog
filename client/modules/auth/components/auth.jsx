@@ -1,20 +1,24 @@
 import React from 'react';
 import {FlowRouter} from 'meteor/kadira:flow-router';
+
 class Auth extends React.Component{
     render() {
       const {MainLayout, content, userId, Meteor} = this.props
       const { waitingForAuthData } = this.props;
 
       if(waitingForAuthData){
+
               return(
-                      <div>
-                        <MainLayout  content={LoadingPage}/>
-                      </div>
+                <div className="cssload-loader">
+                  <div className="cssload-dot"></div>
+                  <div className="cssload-dot"></div>
+                  <div className="cssload-dot"></div>
+                </div>
               );
       }
 
         if(!userId){
-            FlowRouter.go("/");
+            FlowRouter.go("/posts");
         }
         return(
             <div>

@@ -13,7 +13,7 @@ var specialDiv = '<div id="inject-loader-wrapper"><div id="outPopUp"><div id="cs
 
 
 WebApp.connectHandlers.use("/posts", function(req, res, next) {
-var google = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+var google = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
   try {
       req.dynamicHead = (req.dynamicHead || "") + css + google  + specialDiv;
     next();
@@ -24,7 +24,7 @@ var google = '<script async src="https://pagead2.googlesyndication.com/pagead/js
 
 
 WebApp.connectHandlers.use("/viewpost/", function(req, res, next) {
-var google = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
+var google = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>';
   try {
     const post_id = req.url.replace("/","");
 

@@ -40,6 +40,7 @@ class Viewpost extends React.Component {
         <div>
           <div id="fb-root"></div>
         <div className="container " style={{"marginTop":"5%"}}>
+            <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="3067566346"></ins>
             <div className="row center">
             {
               post ?

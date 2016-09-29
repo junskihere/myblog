@@ -10,14 +10,14 @@ class AddPost extends React.Component{
   }
 
   render() {
-    const error= this.props;
 
+    const {error, loader,loadingpage} = this.props;
 
 
     return (
 
       <div className="container">
-
+        {loader ? loadingpage() :null}
         <div className="row">
           <div className="card-panel  blue-grey lighten-5 valign center"><h4>Add new post</h4></div>
         </div>
@@ -81,7 +81,7 @@ class AddPost extends React.Component{
 
               </div>
             </div>
-            <button type="submit" className="waves-effect waves-light btn blue darken-3">submit</button>
+            <button type="submit" className="waves-effect waves-light btn blue darken-3" >submit</button>
           </form>
         </div>
 
@@ -90,13 +90,15 @@ class AddPost extends React.Component{
     );
   }
 
+
+
   createPost(event){
     if(event && event.preventDefault){
       event.preventDefault();
     }
 
-    const {create} = this.props;
-
+    const {create,LocalState} = this.props;
+    LocalState.set("loading",true);
     const {title,editor,image,description, type} = this.refs;
     const body =  editor.getEditor().container.outerHTML;
 

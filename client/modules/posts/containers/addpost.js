@@ -2,17 +2,15 @@ import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 
 import AddPost from '../components/addpost.jsx';
 
-export const composer = ({context,clearErrors}, onData) => {
+export const composer = ({context,clearErrors,loadingpage}, onData) => {
   const {LocalState} = context();
   const error = {
       title :     LocalState.get('title'),
       body :    LocalState.get('body'),
   };
+  let loader = LocalState.get("loading",false);
+  onData(null, {error, loader ,loadingpage, LocalState});
 
-
-  onData(null, error);
-
-  // clearErrors when unmounting the component
   return clearErrors;
 
 };

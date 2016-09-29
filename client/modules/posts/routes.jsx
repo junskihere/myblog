@@ -20,7 +20,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
   FlowRouter.route('/', {
     name: 'posts',
     action() {
-      FlowRouter.go("/posts");
+      window.location = Meteor.absoluteUrl()+"posts";
     },
   });
 
@@ -38,7 +38,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
     name: 'addposts',
     action() {
       mount(AuthCheck, {
-        MainLayout, content: () => (<AddPost />),
+        MainLayout, content: () => (<AddPost  />),
       });
     },
   });

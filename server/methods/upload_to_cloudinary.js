@@ -29,7 +29,7 @@ export default function () {
               const errors = err.details[0];
               throw new Error(errors.message);
             }
-           resolve("Created Transaction");
+           resolve(post.slug);
          });
         });
         });
@@ -56,7 +56,7 @@ export default function () {
                 const errors = err.details[0];
                 throw new Meteor.Error(errors.message);
               }
-              resolve("Created Transaction");
+              resolve(post.slug);
             });
           });
         });
@@ -75,7 +75,7 @@ export default function () {
             const errors = err.details[0];
             throw new Meteor.Error(errors.message);
           }
-          return "Created Transaction";
+          return post.slug;
         });
       }
     },

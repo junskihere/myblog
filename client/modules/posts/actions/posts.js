@@ -7,10 +7,13 @@ export default {
      reader.onload = ()=>{
           var buffer = new Uint8Array(reader.result);
           formData.images = buffer;
-          Meteor.call('createPost',formData, (err)=> {
+          Meteor.call('createPost',formData, (err,slug)=> {
             if(err){
               throw new Error(err.message);
             }
+             window.location =  Meteor.absoluteUrl() + 'viewpost/'+slug;
+
+
           });
       }
       reader.readAsArrayBuffer(file);
