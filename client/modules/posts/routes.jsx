@@ -20,7 +20,9 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
   FlowRouter.route('/', {
     name: 'posts',
     action() {
-      window.location = Meteor.absoluteUrl()+"posts";
+      mount( SingleImageLayoutCtx,{
+         content: () => (<Posts  loadingpage={LoadingPage}/>),
+      });
     },
   });
 
