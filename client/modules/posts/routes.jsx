@@ -20,9 +20,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
   FlowRouter.route('/', {
     name: 'posts',
     action() {
-      mount( SingleImageLayoutCtx,{
-         content: () => (<Posts  loadingpage={LoadingPage}/>),
-      });
+      window.open(window.location.href + "posts/" ,"_self");
     },
   });
 
