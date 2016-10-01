@@ -75,7 +75,8 @@ class Posts extends React.Component{
       e.preventDefault();
     }
     const {Meteor} = this.props;
-    let url = window.location.href.replace("posts/","");
+    let url = window.location.href.replace("posts","");
+    url = window.location.href.replace("//","/");
     window.open(url+ "viewpost/" + postId, '_blank');
   }
 
