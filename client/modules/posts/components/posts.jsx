@@ -4,6 +4,11 @@ import React from 'react';
 
 
 class Posts extends React.Component{
+  componentDidMount(){
+    //(adsbygoogle = window.adsbygoogle || []).push({});
+  }
+
+
   componentDidUpdate(){
     (adsbygoogle = window.adsbygoogle || []).push({});
   }
@@ -26,7 +31,7 @@ class Posts extends React.Component{
         <div className="container" style={{"marginTop":"5%"}}>
 
           <div className="row center">
-            <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="8164233941"></ins>
+            <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
           </div>
 
           <div className="row  ">

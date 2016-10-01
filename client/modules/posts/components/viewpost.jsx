@@ -4,32 +4,34 @@ import {DocHead} from 'meteor/kadira:dochead';
 
 
 class Viewpost extends React.Component {
-
+  componentDidMount(){
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
 
   componentDidUpdate(){
 
 
     const {post} = this.props;
-    if(post){
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1704761049784713',
-          xfbml      : true,
-          version    : 'v2.7'
-        });
-      };
+      if(post){
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1704761049784713',
+            xfbml      : true,
+            version    : 'v2.7'
+          });
+        };
+        (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      }
 
-      (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-    }
 
     (adsbygoogle = window.adsbygoogle || []).push({});
+
   }
 
 
@@ -40,8 +42,9 @@ class Viewpost extends React.Component {
         <div>
           <div id="fb-root"></div>
         <div className="container " style={{"marginTop":"5%"}}>
-            <ins className="adsbygoogle"  style={{"display":"inline-block"},{"width":"728px"},{"height":"90px"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="3067566346"></ins>
-            <div className="row center">
+            <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
+
+          <div className="row center">
             {
               post ?
               <div className="col s12">
@@ -60,7 +63,7 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                    <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
+                    <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="5438949948" data-ad-format="auto"></ins>
                   </div>
 
                   <div className="col s9 animated fadeInUp">
@@ -69,9 +72,9 @@ class Viewpost extends React.Component {
                   </div>
 
                   <div className="col s3">
-                      <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="9640967148" data-ad-format="auto"></ins>
+                      <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="5438949948" data-ad-format="auto"></ins>
                   </div>
-
+                  <input type="hidden" value={post._id} />
               </div>
 
 
@@ -87,9 +90,6 @@ class Viewpost extends React.Component {
         </div>
         </div>
       );
-
-
-
 
   }
 }
