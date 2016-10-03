@@ -58,8 +58,8 @@ class Viewpost extends React.Component {
 
                   <div className="col s9  center animated fadeInDown">
                     <img className="responsive-img" src={post.images.secure_url} alt="Contact Person" />
-                      <div className="fb-like" data-href={Meteor.absoluteUrl().slice(0,-1)+FlowRouter.current().path} 	data-layout="standard" data-action="like" data-show-faces="false"></div>
-                      <div className="fb-share-button" data-href={Meteor.absoluteUrl().slice(0,-1)+FlowRouter.current().path} data-layout="button_count" data-size="small" data-mobile-iframe="true"><a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+                      <div className="fb-like" data-href={"http://junskihere.com"+FlowRouter.current().path} 	data-layout="standard" data-action="like" data-show-faces="false"></div>
+                      <div className="fb-share-button" data-href={"http://junskihere.com"+FlowRouter.current().path} data-layout="button_count" data-size="small" data-mobile-iframe="true"><a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
                   </div>
 
                   <div className="col s3">
