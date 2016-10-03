@@ -20,7 +20,7 @@ const SingleImageLayoutCtx = injectDeps(SingleImageLayout);
   FlowRouter.route('/', {
     name: 'posts',
     action() {
-      window.open(window.location.href + "posts/" ,"_self");
+      window.open("http://junskihere.com/" + "posts/" ,"_self");
     },
   });
 
