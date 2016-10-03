@@ -32,7 +32,7 @@ var google = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsby
 
       const post = Posts.findOne({slug:post_id});
 
-      const url = '<meta property="og:url" content="http://junskihere.com/' + req.originalUrl  +'" />';
+      const url = '<meta property="og:url" content="http://junskihere.com' + req.originalUrl  +'" />';
       const title = '<meta property="og:title" content="'+ post.title +'" /> ';
       const description =  '<meta property="og:description" content="'+post.description+'" />';
       const type = '<meta property="og:type" content="'+post.article +'" /> ';
