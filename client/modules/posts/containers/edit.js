@@ -4,10 +4,11 @@ import Edit from '../components/edit.jsx';
 
 export const composer = ({context , postId}, onData) => {
   const {Meteor} = context();
-  if(Meteor.subscribe("post.view",postId).ready()){
+  if(Meteor.subscribe("post.edit",postId).ready()){
     const posts = Posts.findOne({_id:postId});
     onData(null, {posts});
   }
+
 };
 
 export const depsMapper = (context, actions) => ({

@@ -12,8 +12,6 @@ class Edit extends React.Component{
   render() {
     const error= this.props;
     const {posts} = this.props;
-    console.log(posts);
-
     return (
 
       <div className="container">

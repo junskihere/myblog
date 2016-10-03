@@ -32,13 +32,14 @@ var google = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsby
 
       const post = Posts.findOne({slug:post_id});
 
-      const url = '<meta property="og:url" content="http://junskihere.com' + req.originalUrl  +'" />';
+      const url = '<meta property="fb:app_id" content="1704761049784713" />';
+      const appid = '<meta property="og:url" content="http://junskihere.com' + req.originalUrl  +'" />';
       const title = '<meta property="og:title" content="'+ post.title +'" /> ';
       const description =  '<meta property="og:description" content="'+post.description+'" />';
-      const type = '<meta property="og:type" content="'+post.article +'" /> ';
+      const type = '<meta property="og:type" content="'+post.type +'" /> ';
       const image =  '<meta property="og:image" content="'+post.images.secure_url+'" /> ';
 
-      req.dynamicHead = (req.dynamicHead || "") + css + url + google + title + description + type + image + specialDiv;
+      req.dynamicHead = (req.dynamicHead || "") + css + appid + url + google + title + description + type + image + specialDiv;
     }
     next();
   } catch (e) {

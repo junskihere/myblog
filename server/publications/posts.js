@@ -11,4 +11,7 @@ export default function () {
   Meteor.publish('post.view', function (postId) {
     return Post.find({slug:postId});
   });
+  Meteor.publish('post.edit', function (postId) {
+    return Post.find({_id:postId});
+  });
 }
