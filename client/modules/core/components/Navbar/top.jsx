@@ -39,12 +39,12 @@ class NavBar extends React.Component {
                     <li>
                         <a  className="posts-dropdown" data-activates='postsDropdown1' href="#">Posts<i className="material-icons right">arrow_drop_down</i></a>
                           <ul id='postsDropdown1' className='dropdown-content'>
-                            <li><a href="/posts">Browse Posts</a></li>
-                            <li><a href="/addpost">Add Post</a></li>
+                            <li><a href="/posts">Browse Gallery</a></li>
+                            <li><a href="#">Featured</a></li>
                           </ul>
                     </li>
                     <li>
-                        { Meteor.userId() ? <a href="#" onClick={this.Logout.bind(this)}>logout<i className="small material-icons left">power_settings_new</i></a> : <a href="/junskihere-login">login<i className="small material-icons left">vpn_key</i></a> }
+                        { Meteor.userId() ? <a href="#" onClick={this.Logout.bind(this)}>logout<i className="small material-icons left">power_settings_new</i></a> : null }
                     </li>
                 </ul>
                 <ul className="right side-nav light-blue lighten-5" id="mobile-demo">
@@ -55,7 +55,7 @@ class NavBar extends React.Component {
                         <a   href="/posts">Posts<i className="material-icons left">library_books</i></a>
                     </li>
                     <li>
-                         { Meteor.userId() ? <a href="#" onClick={this.Logout.bind(this)}>logout<i className="small material-icons left">power_settings_new</i></a> : <a href="/junskihere-login">login<i className="small material-icons left">vpn_key</i></a> }
+                         { Meteor.userId() ? <a href="#" onClick={this.Logout.bind(this)}>logout<i className="small material-icons left">power_settings_new</i></a> : null /*<a href="/junskihere-login">login<i className="small material-icons left">vpn_key</i></a> */ }
                     </li>
                 </ul>
             </div>

@@ -50,28 +50,31 @@ class Viewpost extends React.Component {
               <div className="col s12">
 
 
-                  <div className="col s9">
-                    <h1>{post.title}</h1>
+                  <div className="col s12">
+                    <h2 className="responsive">{post.title}</h2>
                   </div>
 
 
 
-                  <div className="col s9  center animated fadeInDown">
+                  <div className="col s12  center animated fadeInDown">
                     <img className="responsive-img" src={post.images.secure_url} alt="Contact Person" />
-                      <div className="fb-like" data-href={"http://junskihere.com"+FlowRouter.current().path} 	data-layout="standard" data-action="like" data-show-faces="false"></div>
-                      <div className="fb-share-button" data-href={"http://junskihere.com"+FlowRouter.current().path} data-layout="button_count" data-size="small" data-mobile-iframe="true"><a className="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+
+                    <div className="fb-like" data-href={"http://junskihere.com"+FlowRouter.current().path}  data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
                   </div>
 
-                  <div className="col s3">
+                  <div className="col s12 center">
                     <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073"  data-ad-slot="5438949948" data-ad-format="auto"></ins>
                   </div>
 
-                  <div className="col s9 animated fadeInUp">
+                  <div className="col s12 animated fadeInUp">
                     <ReactQuill className="justify" readOnly={true} value={post.body}  />
 
                   </div>
-
-                  <div className="col s3">
+                  <div className="col s12  center animated fadeInDown">
+                      <div className="fb-like" data-href={"http://junskihere.com"+FlowRouter.current().path}  data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                  </div>
+                <div className="col s12 center">
                       <ins className="adsbygoogle" style={{"display":"block"}} data-ad-client="ca-pub-3428123242724073" data-ad-slot="5438949948" data-ad-format="auto"></ins>
                   </div>
                   <input type="hidden" value={post._id} />

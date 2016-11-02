@@ -5,7 +5,7 @@ import {Meteor} from 'meteor/meteor';
 export default function () {
   Meteor.methods({
     'getLatestPosts'() {
-      return Posts.find({},{$sort:{createdAt:-1}}).fetch();
+      return Posts.find({},{sort:{createdAt:-1}}).fetch();
     },
     'junskihere-delete'(id){
       if(Meteor.userId()){
